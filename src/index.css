@@ -5,9 +5,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  
 }
+
+.card {
+  margin: 3%;
+  background-color: rgb(153, 153, 153);
+}
+.card-text {
+  color: rgb(17, 17, 17);
+}
+.card-header {
+  background-color: rgb(153, 153, 153);
+}
+.card-footer {
+  background-color: rgb(153, 153, 153);
+}
+
+.container {
+  margin-bottom: '1rem;';
+  
+}
+
+.card-colum {
+  margin-bottom: '1rem;';
+}
+
+

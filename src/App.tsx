@@ -1,8 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
-import Home from './components/Home'
-import './App.css';
+import Home from 'components/Home'
+import 'App.css';
+import {CharactersPage} from 'pages/CharactersPage';
+import { EpisodesPage } from 'pages/EpisodesPage';
+import { LocationsPage } from 'pages/LocationsPage';
 
 function App() {
   return (
@@ -11,8 +14,9 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/characters" element={<Characters />} />
-            <Route path="/character/:id" element={<CharacterDetails />} /> */}
+            <Route path="/characters" element={<CharactersPage />} />
+            <Route path="/episodes" element={<EpisodesPage />} />
+            <Route path="/locations" element={<LocationsPage />} />
           </Routes>
         </Router>
       </header>

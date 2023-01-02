@@ -45,3 +45,7 @@
 .card-colum {
   margin-bottom: '1rem;';
 }
+
+.custom-button:hover {
+  cursor: pointer;
+}

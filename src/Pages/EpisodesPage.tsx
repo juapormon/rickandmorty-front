@@ -1,22 +1,13 @@
-import { CharacterCard } from "components/CharacterCard"
 import { EpisodeCard } from "components/EpisodeCard"
-import { FC, Fragment, useEffect, useState } from "react"
-import { useLocation } from "react-router"
+import { useEffect, useState } from "react"
 import { HomeService } from "services/home.service"
-import { Character } from "types/models/character.types"
 import { Episode } from "types/models/episode.types"
-import { Page } from "./Page"
+import { Page } from "./generic/Page"
 
-
-interface AppState {
-    episodes: Array<Episode> 
-}
 
 export const EpisodesPage = () => {
 
-    const [episodes, setEpisodes] = useState<AppState["episodes"]>()
-
-    const { pathname } = useLocation();
+    const [episodes, setEpisodes] = useState<Array<Episode>>()
 
     useEffect(() => {
         HomeService.getEpisodes().then((data) =>{
@@ -25,28 +16,20 @@ export const EpisodesPage = () => {
     }, [])
 
     return(
-        <>
-        {console.log(episodes)}
         <Page apiElement={'episodes'} >
-            <Fragment>
+            <>
                 {episodes?
-                    episodes.map((ep) =>{
-                        const { name, episode, air_date } =
-                            ep;
-                            return (
-                                <EpisodeCard title={name} 
-                                    episode={episode} air_date={air_date} />
-                            )
-                        
-                    })
+                    episodes.map(({ name, episode, air_date }) => (    
+                        <EpisodeCard title={name} 
+                            episode={episode} air_date={air_date} />
+                    ))
                 :
                 <div>
                     <h3>loading..</h3>
                 </div>
                 }
                 
-            </Fragment>
+            </>
         </Page>
-        </>
     )
 }

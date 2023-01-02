@@ -3,7 +3,7 @@ export type BaseUrlType = {
     url: string
 }
 
-export type infoResponse= {
+export type infoResponse = {
     count: number
     pages: number
     next: string

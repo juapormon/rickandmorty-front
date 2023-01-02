@@ -1,24 +1,13 @@
-import { CharacterCard } from "components/CharacterCard"
-import { EpisodeCard } from "components/EpisodeCard"
 import { LocationCard } from "components/LocationCard"
-import { FC, Fragment, useEffect, useState } from "react"
-import { useLocation } from "react-router"
+import { useEffect, useState } from "react"
 import { HomeService } from "services/home.service"
-import { Character } from "types/models/character.types"
-import { Episode } from "types/models/episode.types"
 import { Location } from "types/models/location.types"
-import { Page } from "./Page"
+import { Page } from "./generic/Page"
 
-
-interface AppState {
-    locations: Array<Location>
-}
 
 export const LocationsPage = () => {
 
-    const [locations, setLocations] = useState<AppState["locations"]>()
-
-    const { pathname } = useLocation();
+    const [locations, setLocations] = useState<Array<Location>>()
 
     useEffect(() => {
         HomeService.getLocations().then((data) =>{
@@ -28,22 +17,18 @@ export const LocationsPage = () => {
 
     return(
         <Page apiElement={'episodes'} >
-            <Fragment>
+            <>
                 {locations?
-                    locations.map((location) =>{
-                        const { name, type, residents} =
-                            location;
-                            return (
-                                <LocationCard title={name} 
-                                    type={type} residentsNumber={residents.length} />
-                            )
-                    })
+                    locations.map(({ name, type, residents, dimension}) => (
+                        <LocationCard title={name} type={type}
+                            residentsNumber={residents.length} dimension={dimension} />
+                    ))        
                 :
                 <div>
                     <h3>loading..</h3>
                 </div>
                 }
-            </Fragment>
+            </>
         </Page>
     )
 }

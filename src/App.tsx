@@ -1,7 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
-import Home from 'components/Home'
+import Home from 'components/generic/Home'
 import 'App.css';
 import {CharactersPage} from 'pages/CharactersPage';
 import { EpisodesPage } from 'pages/EpisodesPage';

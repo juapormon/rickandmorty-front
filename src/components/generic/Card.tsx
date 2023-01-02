@@ -1,15 +1,16 @@
 import { FC, ReactElement } from "react";
 
-export interface CardType {
+
+export interface CardProps{
     title: string,
     avatar?: string, 
     children: ReactElement
 }
 
-export const Card: FC<CardType> = ({ title, avatar, children }) =>{
+export const Card: FC<CardProps> = ({ title, avatar, children }) =>{
      
     return (
-        <div className="card">
+        <div className="card col-xs-6" style={{maxWidth: "25%", maxHeight: "25%", backgroundColor: "grey"}}>
             {avatar?
                 <img className="card-img-top" src={avatar} alt="Card image cap"></img>
             :

@@ -1,5 +1,6 @@
-import { FC, Fragment } from "react"
+import { FC } from "react"
 import { Card } from "./generic/Card"
+
 
 interface EpisodeCard {
     title: string
@@ -10,7 +11,6 @@ interface EpisodeCard {
 export const EpisodeCard: FC<EpisodeCard> = ({ title, episode, air_date }) => {
     return(
         <Card title={title} >
-            <Fragment>
             <div style={{ backgroundColor:"LightBlue"}} className="card">
                 <div className="card-body">
                 <p style={{ fontSize: "70%" }}>Episode: {episode}</p>
@@ -21,7 +21,6 @@ export const EpisodeCard: FC<EpisodeCard> = ({ title, episode, air_date }) => {
                         </div>
                     </div>
             </div>
-            </Fragment>
         </Card>
     )
 }

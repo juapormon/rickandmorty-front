@@ -38,12 +38,11 @@
 }
 
 .container {
-  margin-bottom: '1rem;';
-  
+  margin-bottom: "1rem;";
 }
 
 .card-colum {
-  margin-bottom: '1rem;';
+  margin-bottom: "1rem;";
 }
 
 .custom-button:hover {
